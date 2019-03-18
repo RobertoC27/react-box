@@ -4,13 +4,13 @@
 # React Truffle Box modified 
 
 This box comes with everything you need to start using smart contracts from a react app. This is as barebones as it gets, so nothing stands in your way.
-## Modifications
+## Modifications ✏️
 1. Added a convenience script that extracts ABI and address of each contract and puts them on `client/src/utils/contractsInfo.js`
-### Truffle-config.js
+### Truffle-config.js 🔍
 2. Configuration for ganache running on port 9494 with network id 5777
 3. Configuration for remote private network with websockets
 
-### client/src/utils/getWeb3.js
+### client/src/utils/getWeb3.js 🔍
 4. If no provider is injected added fallback to search provider locally (Ganache) and remotely (cloud private network)
 ## Installation
 

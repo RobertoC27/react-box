@@ -1,21 +1,31 @@
-# React Truffle Box
+
+
+
+# React Truffle Box modified 
 
 This box comes with everything you need to start using smart contracts from a react app. This is as barebones as it gets, so nothing stands in your way.
+## Modifications
+1. Added a convenience script that extracts ABI and address of each contract and puts them on `client/src/utils/contractsInfo.js`
+### Truffle-config.js
+2. Configuration for ganache running on port 9494 with network id 5777
+3. Configuration for remote private network with websockets
 
+### client/src/utils/getWeb3.js
+4. If no provider is injected added fallback to search provider locally (Ganache) and remotely (cloud private network)
 ## Installation
 
-First ensure you are in a new and empty directory.
-
-1. Run the `unbox` command via `npx` and skip to step 3. This will install all necessary dependencies. A Create-React-App is generated in the `client` directory.
-   ```js
-   npx truffle unbox react
+As with the truffle box, **make sure you are in an empty folder**
+1. Clone the repo
+   ```
+   git clone https://github.com/RobertoC27/react-box .
+   ```
+2. Install packages for the React frontend
+    Choose the one that fits your package manager
+   ```javascript
+   cd client && yarn install
+   cd client && npm install
    ```
 
-2. Alternatively, you can install Truffle globally and run the `unbox` command.
-    ```javascript
-    npm install -g truffle
-    truffle unbox react
-    ```
 
 3. Run the development console.
     ```javascript

@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path')
 
-const contractsPath = path.resolve(__dirname, 'truffleContracts', 'contracts');
+const contractsPath = path.resolve(__dirname, '..', 'truffleContracts');
 const outPath = path.resolve(__dirname, 'src', 'utils', 'contractsInfo.js');
 
 // remove old file to for mental health

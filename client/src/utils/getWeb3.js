@@ -10,6 +10,9 @@ const getWeb3 = () =>
         try {
           // Request account access if needed
           await window.ethereum.enable();
+
+          console.log('🆕 🦊 Metamask new style');
+
           // Acccounts now exposed
           resolve(web3);
         } catch (error) {
@@ -20,16 +23,28 @@ const getWeb3 = () =>
       else if (window.web3) {
         // Use Mist/MetaMask's provider.
         const web3 = window.web3;
-        console.log("Injected web3 detected.");
+        console.log('🗝️ 🦊 Metamask old style');
         resolve(web3);
       }
-      // Fallback to localhost; use dev console port by default...
+      // Fallback to localhost; or private cloud network
       else {
-        const provider = new Web3.providers.HttpProvider(
-          "http://127.0.0.1:9545"
-        );
-        const web3 = new Web3(provider);
-        console.log("No web3 instance injected, using Local web3.");
+        let provider = new Web3.providers.HttpProvider('http://127.0.0.1:9494');
+        let web3 = new Web3(provider);
+        try {
+          await web3.eth.net.getId();
+          console.log('💻 Local Ganache network');
+
+        } catch (error) {
+          provider = new Web3.providers.WebsocketProvider('ws://35.165.129.25:7878');
+          web3 = new Web3(provider);
+          console.log('☁️ Private cloud network');
+
+        }
+        // const provider = new Web3.providers.HttpProvider(
+        //   "http://127.0.0.1:9494"
+        // );
+        // const web3 = new Web3(provider);
+        // console.log("No web3 instance injected, using Local web3.");
         resolve(web3);
       }
     });

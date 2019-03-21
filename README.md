@@ -39,20 +39,22 @@ cd react-box
 mv * ../ #moves everything to the repo
 cd .. && rm -r react-box
 ```
-3. Commit to your new repo
-```
-echo "# tmp" >> README.md
-git add .
-git commit -m "first commit"
-git push -u origin master
-```
-4. Install packages for the React frontend
+
+3. Install dependencies
+   `yarn install` inside the main folder to install open zeppelin contracts
     Choose the one that fits your package manager
    ```javascript
    cd client && yarn install
    cd client && npm install
    ```
 
+4. Commit to your new repo
+```
+echo "# tmp" >> README.md
+git add .
+git commit -m "first commit"
+git push -u origin master
+```
 
 ## Developing
 1. Run the development console.

@@ -36,7 +36,7 @@ git remote add origin https://github.com/RobertoC27/<newrepo>.git
 ```
 git clone https://github.com/RobertoC27/react-box
 cd react-box
-mv * ../ #moves everything to the repo
+mv * ../ && mv .gitignore ../ #moves everything to the repo
 cd .. && rm -r react-box
 ```
 
